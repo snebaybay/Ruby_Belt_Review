@@ -32,6 +32,16 @@ class UsersController < ApplicationController
 	  end
   end
 
+  def edit
+  	@user = User.find(session[:user_id])
+  end
+
+  def update 
+  	@user = User.find(session[:user_id])
+  	@user.update(first_name:params[:first_name], last_name:params[:last_name], email:params[:email], location:params[:location], state:params[:state])
+  	redirect_to '/events'
+  end 
+
   def logout
   	session[:user_id] = nil
     redirect_to '/'

@@ -1,3 +1,22 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
-<a href="/users/logout"> Log Out </a>
+
+<div class="header" style="display: inline-block;">
+	<h1 style="display: inline-block; margin-right: 300px;"> Welcome, <%= @user.first_name %></h1>
+	<a style="margin-right: 20px;" href="/users/edit"> Edit </a>
+	<a href="/users/logout"> Log Out </a>
+</div>
+
+<div class="body">
+<h3> Here are some of the events at your state </h3>
+<table>
+	<tr>
+	<th> Name </th>
+	<th> Date </th>
+	<th> Location </th>
+	<th> Host </th>
+	<th> Action </th>
+	</tr>
+</table>
+
+
+
+</div>

@@ -15,7 +15,11 @@ Rails.application.routes.draw do
 
   post 'users/register'
 
+  post 'users/update'
+
   get 'users/logout'
+
+  get 'users/edit'
 
   root 'users#index'
 
