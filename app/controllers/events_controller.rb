@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
     @user = User.find(session[:user_id])
+    @all_user = User.all 
     @events = Event.all
   end
 

@@ -16,7 +16,24 @@
 	<th> Host </th>
 	<th> Action </th>
 	</tr>
-	<tr> <td> <%= @event %></td></tr>
+	<% @events.each do |event|%>
+		<% if event.location == @user.state %>
+	<tr> 
+		<td> <a href="#"><%= event.name %></a></td>
+		<td> <%= event.date %></td>
+		<td> <%= event.location %></td>
+		<td> <%= event.user.first_name %></td>
+		<% if event.user_id != @user.id %>
+		<td> <a href="#"> Join </a></td>
+		<td> <a href="#"> Cancel </a></td>
+		<% elsif event.user_id == @user.id %>
+		<td> <a href="#"> Edit </a></td>
+		<td> <a href="#"> Destroy </a></td>
+		<% end %>
+		
+	</tr>
+	<% end %>
+<% end %>
 </table>
 
 <h3> Here are some of the events at other states</h3>
@@ -28,6 +45,23 @@
 	<th> Host </th>
 	<th> Action </th>
 	</tr>
+	<% @events.each do |event|%>
+	<% if event.location != @user.state %>
+	<tr> <td> <a href="#"><%= event.name %></a></td>
+	<td> <%= event.date %></td>
+	<td> <%= event.location %></td>
+	<td> <%= event.user.first_name %></td>
+	<% if event.user_id != @user.id %>
+		<td> <a href="#"> Join </a></td>
+		<td> <a href="#"> Cancel </a></td>
+		<% elsif event.user_id == @user.id %>
+		<td> <a href="#"> Edit </a></td>
+		<td> <a href="#"> Destroy </a></td>
+		<% end %>
+	<td>
+	</tr>
+	<% end %>
+	<% end %>
 </table>
 
 <h3> Add Event </h3>
@@ -109,3 +143,4 @@
 	<input id="button" type="submit" value="Create">
 </form>
 </div>
+
