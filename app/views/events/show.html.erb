@@ -1,2 +1,13 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="header" style="display: inline-block;">
+	<h1 style="display: inline-block; margin-right: 300px;"> Welcome, <%= @user.first_name %></h1>
+	<a style="margin-right: 20px;" href="/events"> Event Dashboard </a>
+	<a href="/users/logout"> Log Out </a>
+
+<h3> Name: <%= @events.name %> </h3>
+<h4> Host: <%= @events.user.first_name%> </h4>
+<h4> Date: <%= @events.date %> </h4>
+<h4> Location: <%= @events.location %> </h4>
+<h4> People who are joining this event: COUNT </h4>
+
+
+

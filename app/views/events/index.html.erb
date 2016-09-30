@@ -19,7 +19,7 @@
 	<% @events.each do |event|%>
 		<% if event.location == @user.state %>
 	<tr> 
-		<td> <a href="#"><%= event.name %></a></td>
+		<td> <a href="/events/<%= event.id%>"><%= event.name %></a></td>
 		<td> <%= event.date %></td>
 		<td> <%= event.location %></td>
 		<td> <%= event.user.first_name %></td>
@@ -27,7 +27,7 @@
 		<td> <a href="#"> Join </a></td>
 		<td> <a href="#"> Cancel </a></td>
 		<% elsif event.user_id == @user.id %>
-		<td> <a href="#"> Edit </a></td>
+		<td> <a href="/events/edit/<%= event.id%>"> Edit </a></td>
 		<td> <a href="#"> Destroy </a></td>
 		<% end %>
 		
@@ -47,7 +47,7 @@
 	</tr>
 	<% @events.each do |event|%>
 	<% if event.location != @user.state %>
-	<tr> <td> <a href="#"><%= event.name %></a></td>
+	<tr> <td> <a href="/events/<%= event.id%>"> <%= event.name %></a></td>
 	<td> <%= event.date %></td>
 	<td> <%= event.location %></td>
 	<td> <%= event.user.first_name %></td>

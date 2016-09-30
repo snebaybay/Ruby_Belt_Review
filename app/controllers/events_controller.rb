@@ -16,12 +16,23 @@ class EventsController < ApplicationController
     end 
   end
 
-  def show
-  end
+  def show #need to finish (especially count and comment)
+    @events = Event.find(params[:id])
+    @user = User.find(session[:user_id])
+    @all_user = User.all 
+    # @count = @events.group(:user_id).count
+
+  end 
 
   def edit
+    @events = Event.find(params[:id])
+    @attendees = Userevent.where(user_id:params[:user_id])
   end
 
-  def destroy
+  def update #need to finish
+    redirect_to '/events'
+  end 
+
+  def destroy #need to finish
   end
 end
