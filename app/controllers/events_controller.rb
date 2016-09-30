@@ -17,10 +17,12 @@ class EventsController < ApplicationController
   end
 
   def show #need to finish (especially count and comment)
+    @user = User.find(session[:user_id])
     @events = Event.find(params[:id])
     @user = User.find(session[:user_id])
     @all_user = User.all 
-    # @count = @events.group(:user_id).count
+    @user_event = Userevent.where(event_id:@events)
+    @comments = Comment.all
 
   end 
 
@@ -33,6 +35,20 @@ class EventsController < ApplicationController
     redirect_to '/events'
   end 
 
+  def join
+    @user = User.find(session[:user_id])
+    @events = Event.find(params[:id])
+    @new = Userevent.create(user_id:@user.id, event_id:@events.id)
+    redirect_to '/events' 
+  end 
+
   def destroy #need to finish
   end
+
+  def create_comment
+    @user = User.find(session[:user_id])
+    @events = Event.find(params[:id])
+    Comment.create(user_id:@user.id, event_id:@events.id, message:params[:comment])
+    redirect_to '/events/<%=event.id%>' 
+  end 
 end
