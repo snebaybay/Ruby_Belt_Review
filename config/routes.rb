@@ -23,10 +23,9 @@ Rails.application.routes.draw do
   get '/events/edit/:id' => 'events#edit' #this is edit for events
 
   get '/events/:id' => 'events#show'
+  post 'comments/create/:id/:event_id' => 'events#create_comment'
 
-  get 'events/destroy'
-
-  post '/comments/create' => 'events#create_comment'
+  get 'events/destroy/:id'=> 'events#destroy'
 
  
 

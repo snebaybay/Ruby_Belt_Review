@@ -30,15 +30,11 @@
 </table>
 </div>
 <div style="display: inline-block; vertical-align: top;">
-	
-	<% if @comments.include? (@events) %>
-	<%= @comments.each do |comment| %>
-	<%= comment.message %>
-	<% end %>
-	<% end %>
+
+
 
 	<form>
-	<form action="/comments/create" method="POST">
+	<form action="/comments/create/:id/:event_id%>" method="POST">
 	<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 	<p> Add Comment: </p>
 	<input type="text" name="comment">

@@ -27,7 +27,7 @@
 		<td> <%= event.user.first_name %></td>
 		<% if event.user_id == @user.id %>
 		<td> <a href="/events/edit/<%= event.id%>"> Edit </a></td>
-		<td> <a href="#"> Destroy </a></td>
+		<td> <a href="/events/destroy/<%=event.id%>"> Destroy </a></td>
 		<% elsif !event.users.include? (@user) %>
 		<td> <a href="/events/join/<%= event.id %>"> Join </a></td>
 		<% elsif event.users.include? (@user) %>
